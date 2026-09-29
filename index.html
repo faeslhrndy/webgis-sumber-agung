@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        WebGIS Lahan Desa Sumber Agung
+    </title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- CSS WebGIS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <h1>
+            WebGIS Lahan Desa Sumber Agung
+        </h1>
+
+        <p>
+            Pemetaan lahan pertanian dan
+            perhitungan kebutuhan pupuk bersubsidi
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         KONTEN
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             FILTER
+        ========================== -->
+
+        <section class="filter-box">
+
+
+            <div class="filter-item">
+
+                <label for="filterKelompok">
+                    Kelompok Tani
+                </label>
+
+                <select id="filterKelompok">
+
+                    <option value="semua">
+                        Semua Kelompok
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-item">
+
+                <label for="filterKomoditas">
+                    Komoditas
+                </label>
+
+                <select id="filterKomoditas">
+
+                    <option value="semua">
+                        Semua Komoditas
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button id="btnReset">
+                Reset Filter
+            </button>
+
+
+        </section>
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
+
+        <section class="dashboard">
+
+
+            <div class="card">
+
+                <h3>
+                    Total Lahan
+                </h3>
+
+                <p id="totalLahan">
+                    0
+                </p>
+
+                <span>
+                    bidang lahan
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Total Luas
+                </h3>
+
+                <p id="totalLuas">
+                    0
+                </p>
+
+                <span>
+                    hektare
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Total Pupuk
+                </h3>
+
+                <p id="totalPupuk">
+                    0
+                </p>
+
+                <span>
+                    kg
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             PETA
+        ========================== -->
+
+        <section class="map-section">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Peta Lahan Pertanian
+                </h2>
+
+                <p>
+                    Klik polygon lahan untuk melihat
+                    informasi detail.
+                </p>
+
+            </div>
+
+
+            <div id="map"></div>
+
+
+        </section>
+
+
+        <!-- =========================
+             REKAP KOMODITAS
+        ========================== -->
+
+        <section class="table-section">
+
+
+            <h2>
+                Rekapitulasi Berdasarkan Komoditas
+            </h2>
+
+
+            <div class="table-container">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>No</th>
+
+                            <th>
+                                Komoditas
+                            </th>
+
+                            <th>
+                                Jumlah Lahan
+                            </th>
+
+                            <th>
+                                Luas (Ha)
+                            </th>
+
+                            <th>
+                                Dosis (Kg/Ha)
+                            </th>
+
+                            <th>
+                                Kebutuhan Pupuk (Kg)
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tabelKomoditas">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             REKAP KELOMPOK
+        ========================== -->
+
+        <section class="table-section">
+
+
+            <h2>
+                Rekapitulasi Berdasarkan Kelompok Tani
+            </h2>
+
+
+            <div class="table-container">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                No
+                            </th>
+
+                            <th>
+                                Kelompok Tani
+                            </th>
+
+                            <th>
+                                Jumlah Lahan
+                            </th>
+
+                            <th>
+                                Luas (Ha)
+                            </th>
+
+                            <th>
+                                Kebutuhan Pupuk (Kg)
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tabelKelompok">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         LEAFLET JS
+    ========================== -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+
+    <!-- =========================
+         JAVASCRIPT WEBGIS
+    ========================== -->
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
